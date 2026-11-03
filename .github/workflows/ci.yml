@@ -1,0 +1,45 @@
+name: CI
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+      - name: System libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libgtk-3-dev librsvg2-dev libayatana-appindicator3-dev patchelf
+      - name: R and Python kernels (integration tests)
+        run: |
+          sudo apt-get install -y r-base-core r-cran-irkernel r-cran-jsonlite python3-ipykernel python3-pandas
+      - run: pnpm install --frozen-lockfile
+      - name: Type check
+        run: pnpm exec tsc --noEmit -p .
+      - name: Unit tests
+        run: pnpm test
+      - name: Rust tests
+        working-directory: src-tauri
+        run: cargo test
+      - name: Browser build
+        run: pnpm build
+      - name: Playwright browser
+        run: pnpm exec playwright install --with-deps chromium
+      - name: End-to-end tests
+        run: pnpm e2e
+      - name: Accessibility audit (axe, WCAG 2.1 AA) and keyboard test
+        run: pnpm a11y

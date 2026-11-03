@@ -1,0 +1,20 @@
+{
+  "id": "dataforge.data-summary",
+  "name": "Adat-összefoglaló",
+  "version": "1.0.0",
+  "description": "A szerkesztőben kijelölt változó leíró statisztikája egy panelen (R: summary(), Python: describe()), plusz snippetek és egy téma.",
+  "author": "DataForge",
+  "license": "MIT",
+  "engines": { "dataforge": "^0.1" },
+  "main": "main.js",
+  "permissions": ["editor", "kernel"],
+  "contributes": {
+    "commands": [{ "id": "describe", "title": "Adat-összefoglaló: kijelölt változó összefoglalása", "keybinding": "Mod+Alt+D" }],
+    "panels": [{ "id": "summary", "title": "Összefoglaló" }],
+    "snippets": [
+      { "language": "r", "path": "snippets/r.json" },
+      { "language": "python", "path": "snippets/python.json" }
+    ],
+    "themes": [{ "label": "Fjord (példa)", "path": "themes/fjord.json" }]
+  }
+}

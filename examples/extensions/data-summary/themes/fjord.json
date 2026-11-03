@@ -1,0 +1,26 @@
+{
+  // A VS Code colour theme (JSONC) — DataForge maps it to its design tokens.
+  "name": "Fjord (példa)",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#1F2633",
+    "editor.foreground": "#DCE3EC",
+    "sideBar.background": "#1A202B",
+    "focusBorder": "#7FB4CA",
+    "button.background": "#7FB4CA",
+    "button.foreground": "#141922",
+    "textLink.foreground": "#9CC8DA",
+    "editorError.foreground": "#E07A7A",
+    "editorWarning.foreground": "#E3B873",
+    "gitDecoration.addedResourceForeground": "#93C49A",
+    "editorInfo.foreground": "#86A9E0",
+  },
+  "tokenColors": [
+    { "scope": "comment", "settings": { "foreground": "#7D8A9E", "fontStyle": "italic" } },
+    { "scope": "string", "settings": { "foreground": "#A9CF9B" } },
+    { "scope": "constant.numeric", "settings": { "foreground": "#C8A2D8" } },
+    { "scope": ["keyword", "storage.type"], "settings": { "foreground": "#82B3D6" } },
+    { "scope": "entity.name.function", "settings": { "foreground": "#8FD0CF" } },
+    { "scope": "constant.language", "settings": { "foreground": "#E6A3B4" } },
+  ],
+}

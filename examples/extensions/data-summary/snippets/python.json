@@ -1,0 +1,12 @@
+{
+  "csoportos összesítés": {
+    "prefix": "grsum",
+    "body": ["${1:df}.groupby(\"${2:csoport}\")[\"${3:ertek}\"].agg([\"count\", \"mean\", \"std\"])$0"],
+    "description": "pandas groupby + agg"
+  },
+  "seed beállítása": {
+    "prefix": "seed",
+    "body": ["import numpy as np", "rng = np.random.default_rng(${1:42})$0"],
+    "description": "Reprodukálható véletlenszám-generátor"
+  }
+}

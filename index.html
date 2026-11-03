@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DataForge</title>
+    <script>
+      // Paint the right background before any CSS/JS loads (no white flash).
+      (function () {
+        var m = null;
+        try { m = localStorage.getItem('dataforge.themeMode'); } catch (e) {}
+        if (!m) m = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.dataset.theme = m;
+        var bg = null;
+        try { bg = localStorage.getItem('dataforge.themeBg'); } catch (e) {}
+        if (!bg || !/^#[0-9a-fA-F]{6}$/.test(bg)) bg = m === 'light' ? '#F4F5F7' : '#0D0F13';
+        document.documentElement.style.background = bg;
+      })();
+    </script>
+    <style>
+      html, body, #root { height: 100%; margin: 0; }
+      #boot { position: fixed; inset: 0; display: grid; place-items: center; }
+      #boot div { width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, #5b6cff, #8b9bff); opacity: .9; animation: df-boot 1s ease-in-out infinite alternate; }
+      @keyframes df-boot { from { transform: scale(.85); opacity: .5 } to { transform: scale(1); opacity: 1 } }
+    </style>
+  </head>
+  <body>
+    <div id="boot" aria-hidden="true"><div></div></div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

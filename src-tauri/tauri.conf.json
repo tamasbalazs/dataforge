@@ -1,0 +1,93 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "DataForge",
+  "version": "0.1.0",
+  "identifier": "dev.dataforge.app",
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "DataForge",
+        "width": 1440,
+        "height": 900,
+        "minWidth": 900,
+        "minHeight": 560,
+        "visible": false,
+        "dragDropEnabled": false,
+        "label": "main",
+        "backgroundColor": "#0D0F13"
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "deb",
+      "rpm",
+      "appimage",
+      "dmg",
+      "app",
+      "nsis",
+      "msi"
+    ],
+    "category": "DeveloperTool",
+    "shortDescription": "Data science IDE for R and Python",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "publisher": "DataForge contributors",
+    "copyright": "© 2026 DataForge contributors",
+    "longDescription": "DataForge is a desktop data science IDE for R and Python: editor, consoles, variables, data viewer, plots, Quarto, packages, help, Git, terminal, debugger, reproducibility export, extensions, remote development over SSH and real-time collaboration.",
+    "linux": {
+      "deb": {
+        "section": "science",
+        "priority": "optional",
+        "depends": []
+      },
+      "rpm": {
+        "release": "1",
+        "depends": []
+      },
+      "appimage": {
+        "bundleMediaFramework": false
+      }
+    },
+    "macOS": {
+      "minimumSystemVersion": "11.0",
+      "hardenedRuntime": true,
+      "entitlements": "macos/entitlements.plist",
+      "signingIdentity": null
+    },
+    "windows": {
+      "digestAlgorithm": "sha256",
+      "timestampUrl": "http://timestamp.digicert.com",
+      "certificateThumbprint": null,
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": [
+          "English",
+          "Hungarian"
+        ],
+        "displayLanguageSelector": true
+      },
+      "wix": {
+        "language": [
+          "en-US",
+          "hu-HU"
+        ]
+      }
+    }
+  }
+}

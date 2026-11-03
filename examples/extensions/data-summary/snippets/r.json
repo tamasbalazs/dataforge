@@ -1,0 +1,12 @@
+{
+  "ggplot pontdiagram": {
+    "prefix": "ggpoint",
+    "body": ["ggplot(${1:adat}, aes(x = ${2:x}, y = ${3:y})) +", "  geom_point(alpha = 0.6) +", "  theme_minimal()$0"],
+    "description": "ggplot2 pontdiagram"
+  },
+  "csoportos összesítés": {
+    "prefix": "grsum",
+    "body": ["${1:adat} |>", "  dplyr::group_by(${2:csoport}) |>", "  dplyr::summarise(n = dplyr::n(), atlag = mean(${3:ertek}, na.rm = TRUE))$0"],
+    "description": "dplyr group_by + summarise"
+  }
+}

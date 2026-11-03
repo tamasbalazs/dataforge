@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1B1E2B"/>
+      <stop offset="1" stop-color="#0E1017"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#5B6CFF"/>
+      <stop offset="1" stop-color="#8B9BFF"/>
+    </linearGradient>
+    <linearGradient id="spark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFC56B"/>
+      <stop offset="1" stop-color="#FF8A4C"/>
+    </linearGradient>
+  </defs>
+  <rect x="64" y="64" width="896" height="896" rx="208" fill="url(#bg)"/>
+  <rect x="64.5" y="64.5" width="895" height="895" rx="207.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="3"/>
+  <rect x="268" y="532" width="104" height="220" rx="36" fill="url(#acc)" opacity="0.55"/>
+  <rect x="420" y="412" width="104" height="340" rx="36" fill="url(#acc)" opacity="0.8"/>
+  <rect x="572" y="300" width="104" height="452" rx="36" fill="url(#acc)"/>
+  <path d="M752 228 L776 290 L838 314 L776 338 L752 400 L728 338 L666 314 L728 290 Z" fill="url(#spark)"/>
+</svg>
