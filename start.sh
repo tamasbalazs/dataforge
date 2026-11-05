@@ -42,7 +42,8 @@ if [[ "$(uname)" == "Linux" ]] && have pkg-config && ! pkg-config --exists webki
   sudo apt install libwebkit2gtk-4.1-dev libgtk-3-dev librsvg2-dev libayatana-appindicator3-dev build-essential"
 fi
 
-if [[ ! -d node_modules ]]; then
+# Install when missing, or when the lockfile changed (e.g. after git pull).
+if [[ ! -f node_modules/.modules.yaml || pnpm-lock.yaml -nt node_modules/.modules.yaml ]]; then
   say "Függőségek telepítése…"
   pnpm install --frozen-lockfile
 fi
